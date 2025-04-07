@@ -1,1 +1,1154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Soniferba Nîmes : Spécialiste en serrurerie, automatismes de portails et quincaillerie depuis 1984. Franchisé officiel Storiste de France. Installation et maintenance d'automatismes DEA, Cardin, V2. Vente de serrures DOM, ISEO, Multi-Lock.">
+    <meta name="keywords" content="serrurerie, automatisme portail, quincaillerie, Nîmes, DEA, Cardin, V2, DOM, ISEO, Multi-Lock, Somfy, programmation télécommande, motorisation portail, contrôle d'accès, volet roulant, serrure connectée, Storiste de France">
+    
+    <!-- Open Graph Meta Tags pour les réseaux sociaux -->
+    <meta property="og:title" content="Soniferba Nîmes - Serrurerie et Automatismes - Franchisé Storiste de France">
+    <meta property="og:description" content="Spécialiste en serrurerie, automatismes et quincaillerie à Nîmes. Franchisé officiel Storiste de France. Installation et maintenance d'automatismes de portails.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://www.soniferba.fr">
+    
+    <!-- Optimisation du chargement -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="css/style.css">
+    <link rel="preload" as="font" href="webfonts/fa-solid-900.woff2" crossorigin>
+    
+    <!-- Balises canoniques pour éviter le contenu dupliqué -->
+    <link rel="canonical" href="https://www.soniferba.fr">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    
+    <title>Accueil | Soniferba</title>
+    
+    <!-- Chargement différé des styles non critiques -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    
+    <!-- Chargement différé des polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Optimisations pour mobile -->
+    <meta name="theme-color" content="#8B0000">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preload" href="/images/logo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="images/boutiquesoniferba.jpg" as="image" fetchpriority="high">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" as="style">
+    
+    <!-- Préconnexions aux CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Styles critiques inline pour le premier rendu -->
+    <style>
+        :root {
+            --primary-color: #8B0000;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-color: #333333;
+        }
+        body { margin: 0; opacity: 1 !important; font-family: 'Raleway', sans-serif; }
+        .main-header { background: var(--white); padding: 15px 0; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .hero { min-height: 60vh; background-color: #333; color: var(--white); padding: 80px 0; text-align: center; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)); z-index: 1; }
+        .hero .container { position: relative; z-index: 2; }
+        
+        /* Optimisations pour mobile */
+        @media (max-width: 768px) {
+            .hero { min-height: 50vh; padding: 60px 0 40px; }
+            .hero h1 { font-size: 2rem; margin-bottom: 10px; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 8px; }
+            .hero-buttons { flex-direction: column; gap: 10px; }
+            .cta-button { width: 100%; margin: 0; }
+        }
+        
+        /* Animations et effets modernes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1, .hero-subtitle, .hero-slogan, .hero-buttons {
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .hero h1 { animation-delay: 0.3s; }
+        .hero-subtitle { animation-delay: 0.5s; }
+        .hero-slogan { animation-delay: 0.7s; }
+        .hero-buttons { animation-delay: 0.9s; }
+        
+        .hero-franchise-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.9);
+            color: #8B0000;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
+        }
+        
+        .hero-franchise-badge a {
+            color: #8B0000;
+            text-decoration: none;
+        }
+        
+        .hero-franchise-badge span {
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .hero-franchise-badge span::before {
+            content: "★";
+            margin-right: 6px;
+            color: #8B0000;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-franchise-badge {
+                font-size: 0.85rem;
+                padding: 5px 12px;
+                margin: 10px 0;
+            }
+        }
+        
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139,0,0,0.9) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            box-shadow: 0 4px 15px rgba(139,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .service-column, .renovation-card, .how-to-card, .brand-slide {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-column:hover, .renovation-card:hover, .how-to-card:hover, .brand-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Styles pour l'image d'arrière-plan optimisée */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        /* Optimisations pour les images sur mobile */
+        @media (max-width: 768px) {
+            .hero-background {
+                height: 100%;
+                object-position: center;
+            }
+        }
+        
+        /* Styles critiques pour éviter le FOUC */
+        body { opacity: 0; }
+        .js-loaded body { opacity: 1; transition: opacity 0.3s; }
+
+        /* Style pour le footer bottom avec mentions légales */
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mentions-legales {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .mentions-legales:hover {
+            color: #8B0000;
+        }
+
+        @media (max-width: 576px) {
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        /* Style pour le badge franchise */
+        .franchise-badge {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 20px 0;
+            border-left: 4px solid #8B0000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .franchise-logo {
+            width: 70px;
+            height: auto;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        .franchise-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .franchise-text strong {
+            color: #8B0000;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .franchise-text span {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .franchise-text a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .franchise-text a:hover {
+            color: #8B0000;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 576px) {
+            .franchise-badge {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .franchise-logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 100px;
+            }
+        }
+
+        /* Style pour le badge franchise dans le footer */
+        .footer-franchise {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #8B0000;
+        }
+        
+        .footer-franchise-logo {
+            width: 60px;
+            height: auto;
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+        
+        .footer-franchise p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .footer-franchise p a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-franchise p a:hover {
+            color: #DC0230;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 576px) {
+            .footer-franchise {
+                flex-direction: column;
+                text-align: center;
+                padding: 12px;
+            }
+            
+            .footer-franchise-logo {
+                margin-right: 0;
+                margin-bottom: 8px;
+                width: 70px;
+            }
+        }
+    </style>
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    
+    <!-- Font Awesome via Cloudflare CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Google Fonts via CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" 
+          rel="stylesheet">
+    
+    <!-- jQuery via Cloudflare CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Bootstrap via Cloudflare CDN (optionnel) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDL1cg2RyTzJPV2v+mPOSw/DRs5F5qQXb4JxF2My4XgwZSVK7MLg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <script>
+        // Ajouter la classe js-loaded dès que possible
+        document.documentElement.className += " js-loaded";
+    </script>
+</head>
+<body>
+    <!-- Icône flottante du menu -->
+    <div class="floating-menu-icon">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation principale -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="automatismes.html">Nos installations</a></li>
+            <li><a href="deny-security.html">Deny Security</a></li>
+            <li><a href="dom.html">DOM</a></li>
+            <li><a href="dom-metallux.html">DOM Metallux</a></li>
+            <li><a href="histoire.html">Notre Histoire</a></li>
+            <li class="partner-nav-item">
+                <a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener" class="partner-nav-link">
+                    <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="partner-nav-logo">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Navigation flottante -->
+    <nav class="floating-nav">
+        <ul>
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i>Accueil</a></li>
+            <li><a href="automatismes.html"><i class="fas fa-cogs"></i>Automatismes</a></li>
+            <li><a href="automatismes2.html"><i class="fas fa-cogs"></i>Automatismes 2</a></li>
+            <li><a href="deny-security.html"><i class="fas fa-shield-alt"></i>Deny Security</a></li>
+            <li><a href="dom.html"><i class="fas fa-key"></i>DOM</a></li>
+            <li><a href="dom-metallux.html"><i class="fas fa-lock"></i>DOM Metallux</a></li>
+            <li><a href="histoire.html"><i class="fas fa-book"></i>Notre Histoire</a></li>
+        </ul>
+    </nav>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo Soniferba" class="critical" width="180" height="60" fetchpriority="high">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="automatismes.html">Nos installations</a></li>
+                    <li><a href="deny-security.html">Deny Security</a></li>
+                    <li><a href="histoire.html">Notre Histoire</a></li>
+                    <li><a href="dom-metallux.html">DOM Metallux</a></li>
+                    <li><a href="elbac-cable.html" class="active">ELBAC Câble</a></li>
+                    <li><a href="sav-automatismes.html">SAV</a></li>
+                    <li class="partner-nav-item">
+                        <a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener" class="partner-nav-link">
+                            <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="partner-nav-logo">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-carousel">
+                <!-- Première slide avec texte -->
+                <div class="carousel-slide active" style="background-image: url('images\ carrousel/boutiquesoniferba-min (2) (1)_11zon (1).jpg')">
+                    <div class="carousel-overlay"></div>
+                    <div class="hero-text-center">
+                        <h1>L'Excellence en Fermeture du Bâtiment</h1>
+                        <p>Votre expert quincallier à Nîmes</p>
+                        <div class="hero-franchise-badge">
+                            <a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener">
+                                <span>Franchisé officiel Storiste de France</span>
+                            </a>
+                        </div>
+                        <a href="#services" class="hero-cta">Découvrir nos Solutions</a>
+                    </div>
+                </div>
+
+                <!-- Slides sans texte -->
+                <div class="carousel-slide" style="background-image: url('images\ carrousel/IMG_4854_1_11zon.jpg')">
+                    <div class="carousel-overlay"></div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('images carrousel/IMG_4845_11zon.jpg')">
+                    <div class="carousel-overlay"></div>
+                </div>
+
+                <!-- Contrôles du carrousel -->
+                <div class="carousel-controls">
+                    <button class="carousel-arrow prev" aria-label="Image précédente">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active"></div>
+                        <div class="carousel-dot"></div>
+                        <div class="carousel-dot"></div>
+                    </div>
+                    <button class="carousel-arrow next" aria-label="Image suivante">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+                    <!-- Les boutons CTA sont supprimés -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Boutique -->
+        <section id="boutique" class="boutique-section">
+            <div class="container">
+                <h2 class="section-title">Notre Boutique</h2>
+                <p class="section-subtitle">Venez nous rencontrer dans notre magasin à Nîmes</p>
+                
+                <div class="boutique-grid">
+                    <div class="boutique-image">
+                        <img src="images/boutiquesoniferba-min (2) (1)_11zon (1).jpg" alt="Boutique Soniferba à Nîmes" loading="lazy">
+                    </div>
+                    
+                    <div class="boutique-info">
+                        <h3>Soniferba</h3>
+                        <p>Située au cœur de Nîmes, notre boutique vous accueille dans un espace moderne et convivial. Nos conseillers experts sont à votre disposition pour vous guider dans le choix de vos produits de quincaillerie et automatismes.</p>
+                        
+                        <!-- Badge Franchise -->
+                        <div class="franchise-badge">
+                            <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="franchise-logo">
+                            <div class="franchise-text">
+                                <strong>Franchisé Storiste de France</strong>
+                                <span><a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener">Membre du premier réseau national de storistes</a></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Horaires d'abord -->
+                        <div class="hours-list">
+                            <h4><i class="far fa-clock"></i> Horaires d'ouverture</h4>
+                            <ul>
+                                <li>
+                                    <span class="day">Lundi - Jeudi</span>
+                                    <span class="time">8h-12h | 14h-18h</span>
+                                </li>
+                                <li>
+                                    <span class="day">Vendredi</span>
+                                    <span class="time">8h-12h | 13h30-17h</span>
+                                </li>
+                                <li class="closed">
+                                    <span class="day">Samedi - Dimanche</span>
+                                    <span class="time">Fermé</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Informations de contact ensuite -->
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>10 Boulevard Natoire, 30000 Nîmes</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:0466848824">04 66 84 88 24</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:soniferbanimes@exo7-group.com">soniferbanimes@exo7-group.com</a>
+                            </li>
+                        </ul>
+                        
+                        <a href="contact.html" class="cta-button primary">
+                            <i class="fas fa-paper-plane"></i> Nous contacter
+                        </a>
+                    </div>
+                </div>
+                
+        </section>
+
+
+        <!-- Section Produits (anciennement Services) -->
+        <section id="services" class="services compact-section">
+            <div class="container">
+                <h2 class="section-title">Nos Produits</h2>
+                <p class="section-subtitle">Solutions professionnelles pour tous vos besoins</p>
+                
+                <!-- Blocs Quincaillerie -->
+                <div class="quincaillerie-grid">
+                    <div class="quincaillerie-card">
+                        <div class="card-image">
+                            <a href="images/cylindre dom.jpg" class="image-popup" title="Cylindre européen Dom Ix Twinstar">
+                                <img src="images/cylindre dom.jpg" alt="Cylindre européen Dom Ix Twinstar" loading="lazy">
+                                <a href="images/serrure tribando.jpg" class="image-popup" title="Serrure Tribando multipoints">
+                                    <img src="images/serrure tribando.jpg" alt="Serrure Tribando multipoints" loading="lazy">
+                                    <div class="zoom-indicator">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                </a>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>Serrures</h3>
+                            </div>
+                        <p>Spécialiste des solutions de fermeture haute sécurité</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Serrures multipoints</li>
+                            <li><i class="fas fa-check"></i> Cylindres européens</li>
+                             <li><i class="fas fa-check"></i> Crémone multipoints</li>
+                        </div>
+                    </div>
+
+                    <div class="quincaillerie-card">
+                        <div class="card-image">
+                            <a href="images/poignee karcher.jpg" class="image-popup" title="Poignée design Karcher">
+                                <img src="images/poignee karcher.jpg" alt="Poignée design Karcher" loading="lazy">
+                                <div class="zoom-indicator">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h3>Portes</h3>
+                            </div>
+                        <p>Équipements et accessoires pour portes et fenêtres</p>
+                        <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Poignées et béquilles design</li>
+                            <li><i class="fas fa-check"></i> Ferme-portes</li>
+                                <li><i class="fas fa-check"></i> Accessoires de qualité</li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="quincaillerie-card">
+                        <div class="card-image">
+                            <a href="images/moteur DEA coulissant.jpg" class="image-popup" title="Moteur DEA pour portail coulissant">
+                                <img src="images/moteur DEA coulissant.jpg" alt="Moteur DEA pour portail coulissant" loading="lazy">
+                                <div class="zoom-indicator">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                                <h3>Automatismes portails</h3>
+                            </div>
+                            <p>Spécialiste en motorisation et automatisation de portails</p>
+                        <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Moteurs pour portails (Battants, coulissants....) </li>
+                                <li><i class="fas fa-check"></i> Pièces détachées </li>
+                                <li><i class="fas fa-check"></i> Accessoires (télécommandes, photocellules)</li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="quincaillerie-card">
+                        <div class="card-image">
+                            <a href="images/serrure tapkey.png" class="image-popup" title="Serrure connectée Tapkey">
+                                <img src="images/serrure tapkey.png" alt="Serrure connectée Tapkey" loading="lazy">
+                                <div class="zoom-indicator">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Sécurité</h3>
+                            </div>
+                        <p>Dispositifs de sécurité et contrôle d'accès</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Contrôle d'accès</li>
+                            <li><i class="fas fa-check"></i> Barres anti-panique</li>
+                                <li><i class="fas fa-check"></i> Solutions connectées</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nouvelle carte pour les volets roulants -->
+                    <div class="quincaillerie-card">
+                        <div class="card-image">
+                            <a href="images/volet-roulant-somfy.jpg" class="image-popup" title="Moteur Somfy pour volet roulant">
+                                <img src="images/volet-roulant-somfy.jpg" alt="Moteur Somfy pour volet roulant" loading="lazy">
+                                <div class="zoom-indicator">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-window-restore"></i>
+                                </div>
+                                <h3>Volets Roulants</h3>
+                            </div>
+                            <p>Pièces et accessoires pour volets roulants</p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Manivelles (fins de course)</li>
+                                <li><i class="fas fa-check"></i> Attaches et fixations</li>
+                                <li><i class="fas fa-check"></i> Pièces détachées</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nouvelle carte pour la quincaillerie du bâtiment -->
+                    <div class="quincaillerie-card">
+                        <div class="card-image">
+                            <a href="images/quincalle.png" class="image-popup" title="Quincaillerie et outillage professionnel">
+                                <img src="images/quincalle.png" alt="Quincaillerie et outillage professionnel" loading="lazy">
+                                <div class="zoom-indicator">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h3>Quincaillerie Bâtiment</h3>
+                            </div>
+                            <p>Large stock de fournitures et consommables pour professionnels et particuliers</p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Visserie et boulonnerie professionnelle</li>
+                                <li><i class="fas fa-check"></i> Petit outillage et consommables</li>
+                                <li><i class="fas fa-check"></i> Stock permanent disponible</li>
+                                <li><i class="fas fa-check"></i> Conseils techniques personnalisés</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Comment faire avec votre serrure -->
+        <section id="how-to" class="how-to-section">
+            <div class="container">
+                <div class="how-to-content">
+                    <div class="section-header">
+                        <h2>Comment faire avec votre serrure ?</h2>
+                    </div>
+
+                    <div class="how-to-grid">
+                        <div class="how-to-card">
+                            <div class="step-number">1</div>
+                            <div class="step-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <h3>Démontez votre serrure</h3>
+                            <p>Retirez simplement la serrure de votre porte en dévissant les vis de fixation</p>
+                        </div>
+
+                        <div class="how-to-card">
+                            <div class="step-number">2</div>
+                            <div class="step-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Venez nous voir</h3>
+                            <p>Apportez votre serrure en magasin, nous trouverons le modèle adapté</p>
+                        </div>
+
+                        <div class="how-to-card">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Remontez votre serrure</h3>
+                            <p>Installez la nouvelle serrure en suivant nos conseils professionnels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Automatismes -->
+        <section class="auto-cta">
+            <div class="container">
+                <div class="auto-cta-content">
+                    <div class="auto-cta-text">
+                        <h2>Installation d'automatismes</h2>
+                        <p>Nous installons et maintenons vos automatismes de portails, portes de garage et volets roulants.</p>
+                        <ul class="auto-features">
+                            <li><i class="fas fa-check"></i> Installation professionnelle</li>
+                            <li><i class="fas fa-check"></i> Maintenance préventive</li>
+                            <li><i class="fas fa-check"></i> Dépannage rapide</li>
+                            <li><i class="fas fa-check"></i> Garantie fabricant</li>
+                            <li><i class="fas fa-check"></i> Interventions sur Nîmes et alentours</li>
+                        </ul>
+                        <a href="automatismes.html" class="hero-cta">Découvrir nos Solutions</a>
+                    </div>
+                    <div class="auto-cta-image">
+                        <img src="images/portailbattant.png" alt="Installation d'automatisme de portail battant" loading="lazy">
+                        <figcaption>
+
+                            
+                            <strong>Portail battant</strong> - Marque DEA, 
+                            <a href="https://www.deasystem.com/fr/produit/livi-502-le-moteur-a-bras-pour-portails-battants-de-grandes-dimensions" 
+                               target="_blank" 
+                               rel="noopener">
+                               Modèle LIVI 502
+                            </a>
+
+                            
+                        </figcaption>
+
+                        <a href="automatismes.html" class="hero-cta">Découvrir nos Solutions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ajouter après la section "Comment faire avec votre serrure" -->
+        <div class="service-notice">
+            <div class="container">
+                <div class="notice-content">
+                    <div class="notice-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="notice-text">
+                        <h3>Information importante</h3>
+                        <p>Nous ne réalisons pas d'installations ni de déplacements pour des dépannages de <strong>serrures</strong>. Nos services d'installation et de maintenance concernent uniquement les automatismes (portails, volets roulants).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Marques -->
+        <section class="brands">
+            <div class="container">
+                <h2 class="section-title">Nos marques partenaires</h2>
+                <div class="brands-slider">
+                    <div class="brands-slider-inner">
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo Vachette.jpg" alt="Vachette" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Vachette</h4>
+                                <p>Leader en serrures de haute sécurité</p>
+                            </div>
+                        </div>
+                        
+                        <div class="brand-slide">
+                            <img src="Logo marques /bricard.png" alt="Bricard" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Bricard</h4>
+                                <p>Solutions de sécurité innovantes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="brand-slide">
+                            <img src="Logo marques /logoCISA.png" alt="CISA" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>CISA</h4>
+                                <p>Solutions de sécurité innovantes</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logoJPM.jpg" alt="JPM" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>JPM</h4>
+                                <p>Expert en systèmes de fermeture</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo DOM.png" alt="DOM" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>DOM</h4>
+                                <p>Expert en systèmes de fermeture</p>
+                            </div>
+                        </div>
+                        
+                        <div class="brand-slide">
+                            <img src="Logo marques /somfylogo.png" alt="Somfy" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Somfy</h4>
+                                <p>N°1 de la motorisation et domotique</p>
+                            </div>
+                        </div>
+                        
+                        <div class="brand-slide">
+                            <img src="Logo marques /logoDEA.png" alt="DEA" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>DEA</h4>
+                                <p>Automatismes de qualité italienne</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /LogoCAME.png" alt="CAME" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>CAME</h4>
+                                <p>Solutions d'automatisation avancées</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logoBFT;png.png" alt="BFT" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>BFT</h4>
+                                <p>Systèmes d'automatisation innovants</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo Ferco.png" alt="Ferco" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Ferco</h4>
+                                <p>Quincaillerie de précision</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo stremler.jpg" alt="Stremler" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Stremler</h4>
+                                <p>Solutions pour le bâtiment</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /sewosy.jpg" alt="Sewosy" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Sewosy</h4>
+                                <p>Contrôle d'accès électronique</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /SIMU.png" alt="SIMU" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>SIMU</h4>
+                                <p>Motorisation pour volets et stores</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logoTESA.png" alt="TESA" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>TESA</h4>
+                                <p>Solutions de contrôle d'accès</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logoV2.jpg" alt="V2" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>V2</h4>
+                                <p>Solutions d'automatisation innovantes</p>
+                            </div>
+                        </div>
+
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo Cardin" alt="Cardin" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Cardin</h4>
+                                <p>Automatismes et contrôle d'accès</p>
+                            </div>
+                        </div>
+
+                        <!-- Ajout de ISEO -->
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo iseo.jpg" alt="ISEO" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>ISEO</h4>
+                                <p>Solutions de sécurité et contrôle d'accès</p>
+                            </div>
+                        </div>
+
+                        <!-- Ajout de GAH Alberts -->
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo gah alberts.jpg" alt="GAH Alberts" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>GAH Alberts</h4>
+                                <p>Quincaillerie et ferrures de qualité</p>
+                            </div>
+                        </div>
+
+                        <!-- Ajout de Karcher Design -->
+                        <div class="brand-slide">
+                            <img src="Logo marques /logokarcher.jpg" alt="Karcher Design" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Karcher Design</h4>
+                                <p>Quincaillerie décorative haut de gamme</p>
+                            </div>
+                        </div>
+
+                        <!-- Ajout de Thirard -->
+                        <div class="brand-slide">
+                            <img src="Logo marques /logothirard.png" alt="Thirard" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Thirard</h4>
+                                <p>Spécialiste français de la serrurerie</p>
+                            </div>
+                        </div>
+
+                        <!-- Ajout de Multi-Lock -->
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo multi lock. png.jpg" alt="Multi-Lock" loading="lazy">
+                            <div class="brand-overlay">
+                                <h4>Multi-Lock</h4>
+                                <p>Solutions de sécurité haute performance</p>
+                            </div>
+                        </div>
+
+                        <!-- Ajout de Elabc -->
+                        <div class="brand-slide">
+                            <img src="Logo marques /logo marque elbac.jpg" alt="Elabc" class="brand-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section carte -->
+        <section class="map-section">
+            <div class="container">
+                <div class="map-title">
+                    <h2>Nous Trouver</h2>
+                    <p>Rendez-nous visite dans notre showroom au cœur de Nîmes. Notre équipe vous accueille du lundi au vendredi pour vous conseiller et vous présenter nos solutions.</p>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2876.8905868393584!2d4.364650076537698!3d43.83068077900306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b42d054af82b29%3A0xa626cb2dd644917!2sSoniferba!5e0!3m2!1sfr!2sfr!4v1710233496304!5m2!1sfr!2sfr" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Soniferba" width="180" height="60">
+                    </div>
+                    <p class="footer-tagline">Votre spécialiste en fermetures et automatismes</p>
+                    <p class="footer-description">Depuis plus de 30 ans, nous assurons la sécurité et le confort de nos clients avec des solutions sur-mesure.</p>
+                    <div class="footer-franchise">
+                        <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="footer-franchise-logo">
+                        <p><a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener">Franchisé officiel Storiste de France</a></p>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Nous contacter</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i>123 Avenue de la Liberté, 30000 Nîmes</li>
+                        <li><i class="fas fa-phone"></i><a href="tel:0466383331">04 66 38 33 31</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:contact@soniferba.fr">contact@soniferba.fr</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-hours">
+                    <h4>Horaires d'ouverture</h4>
+                    <ul class="footer-hours-list">
+                        <li>Lundi - Vendredi : 8h30 - 12h00 | 14h00 - 18h30</li>
+                        <li>Samedi : Sur rendez-vous</li>
+                        <li class="closed">Dimanche : Fermé</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="automatismes.html">Nos Automatismes</a></li>
+                        <li><a href="automatismes2.html">Nos Automatismes 2</a></li>
+                        <li><a href="deny-security.html">Deny Security</a></li>
+                        <li><a href="dom.html">DOM</a></li>
+                        <li><a href="histoire.html">Notre Histoire</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p class="copyright">© 2024 Soniferba. Tous droits réservés.</p>
+                        <a href="mentions-legales.html" class="mentions-legales">Mentions légales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social-media">
+            <h3>Suivez-nous</h3>
+            <a href="https://www.facebook.com/profile.php?id=61571713150727" target="_blank" rel="noopener">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.google.fr/maps/place/Soniferba/@43.8308184,4.3666744,699m/data=!3m1!1e3!4m6!3m5!1s0x12b42d054af82b29:0xa626cb2dd644917!8m2!3d43.8306808!4d4.3668389!16s%2Fg%2F1tf5ygs9?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+                <i class="fab fa-google"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script>
+        // S'assurer que la page est complètement chargée
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+
+    <!-- À ajouter juste avant la fermeture de </body> -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Soniferba",
+      "image": "images/logo.png",
+      "description": "Spécialiste en serrurerie, automatismes et quincaillerie à Nîmes depuis 1984. Franchisé officiel Storiste de France.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 Boulevard Natoire",
+        "addressLocality": "Nîmes",
+        "postalCode": "30000",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.83068077900306,
+        "longitude": 4.364650076537698
+      },
+      "url": "https://www.soniferba.fr",
+      "telephone": "0466848824",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "€€",
+      "sameAs": [
+        "https://www.facebook.com/soniferba"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Storistes de France",
+        "url": "https://www.storistes-de-france.com/affilies/soniferba-1"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Storistes de France",
+        "url": "https://www.storistes-de-france.com/affilies/soniferba-1"
+      }
+    }
+
+    https://formspree.io/f/manebvzv
+    </script>
+</body>
+</html> 
 
