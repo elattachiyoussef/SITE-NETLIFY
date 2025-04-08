@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales | Soniferba</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Style amélioré pour les mentions légales */
+        .legal-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('assets/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .legal-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .legal-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .legal-content {
+            padding: 0 0 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .legal-section {
+            padding: 0 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .legal-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 30px;
+        }
+        
+        .legal-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .legal-section h3 {
+            color: var(--dark-gray);
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        .legal-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .legal-section ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .legal-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .legal-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .legal-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal-nav {
+            background: var(--light-gray);
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .legal-nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .legal-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .legal-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: var(--transition);
+        }
+        
+        .back-to-home:hover {
+            transform: translateX(-5px);
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .legal-header {
+                padding: 40px 0;
+            }
+            
+            .legal-header h1 {
+                font-size: 2rem;
+            }
+            
+            .legal-content {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .legal-section {
+                padding: 0 20px;
+            }
+            
+            .legal-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .legal-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+    
+    <!-- Préconnexions -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Chargement asynchrone des polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" 
+          rel="stylesheet" media="print" onload="this.media='all'">
+</head>
+<body>
+    <!-- Icône flottante du menu -->
+    <div class="floating-menu-icon">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation flottante -->
+    <nav class="floating-nav">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Accueil</a></li>
+            <li><a href="index.html#services"><i class="fas fa-box"></i>Nos Produits</a></li>
+            <li><a href="automatismes.html"><i class="fas fa-cogs"></i>Automatismes</a></li>
+            <li><a href="deny-security.html"><i class="fas fa-shield-alt"></i>Deny Security</a></li>
+            <li><a href="histoire.html"><i class="fas fa-book"></i>Notre Histoire</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo Soniferba" class="critical" width="180" height="60" fetchpriority="high">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#services">Nos Produits</a></li>
+                    <li><a href="automatismes.html">Nos Automatismes</a></li>
+                    <li><a href="deny-security.html">Deny Security</a></li>
+                    <li><a href="histoire.html">Notre Histoire</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="mentions-legales.html" class="legal-link active">Mentions légales</a></li>
+                    <li class="partner-nav-item">
+                        <a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener" class="partner-nav-link">
+                            <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="partner-nav-logo">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-header">
+            <div class="container">
+                <h1>Mentions Légales</h1>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="legal-content">
+                <div class="legal-nav">
+                    <ul>
+                        <li><a href="#informations">Informations légales</a></li>
+                        <li><a href="#publication">Direction de publication</a></li>
+                        <li><a href="#hebergement">Hébergement</a></li>
+                        <li><a href="#propriete">Propriété intellectuelle</a></li>
+                        <li><a href="#donnees">Protection des données</a></li>
+                    </ul>
+                </div>
+                
+                <div id="informations" class="legal-section">
+                    <h2>1. Informations légales</h2>
+                    <p>Raison sociale : SONIFERBA (Société Nîmoise de Fermeture Bâtiment)</p>
+                    <p>Forme juridique : SAS</p>
+                    <p>Siège social : 10 Boulevard Natoire, 30000 Nîmes</p>
+                    <p>SIRET : 330 558 362 00019</p>
+                    <p>Capital social : 7 622,45 €</p>
+                    <p>Téléphone : 04 66 84 88 24</p>
+                    <p>Email : soniferbanimes@exo7-group.com</p>
+                </div>
+
+                <div id="publication" class="legal-section">
+                    <h2>2. Direction de la publication</h2>
+                    <p>Directeur de la publication : M. EL ATTACHI Youssef</p>
+                    <p>Responsable de la rédaction : M. EL ATTACHI Youssef</p>
+                </div>
+
+                <div id="hebergement" class="legal-section">
+                    <h2>3. Hébergement</h2>
+                    <p>Ce site est hébergé par :</p>
+                    <p>Netlify Inc.</p>
+                    <p>2325 3rd Street, Suite 215, San Francisco, CA 94107</p>
+                    <p>Site web : <a href="https://www.netlify.com" target="_blank" rel="noopener">https://www.netlify.com</a></p>
+                </div>
+
+                <div id="propriete" class="legal-section">
+                    <h2>4. Propriété intellectuelle</h2>
+                    <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+                    <p>La reproduction de tout ou partie de ce site sur quelque support que ce soit est formellement interdite sauf autorisation expresse de SONIFERBA.</p>
+                </div>
+
+                <div id="donnees" class="legal-section">
+                    <h2>5. Protection des données personnelles</h2>
+                    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour exercer ce droit, vous pouvez nous contacter par email ou par courrier.</p>
+                    <p>Les informations recueillies sur ce site sont utilisées uniquement dans le cadre de nos activités commerciales et ne sont en aucun cas transmises à des tiers.</p>
+                </div>
+
+                <div id="cookies" class="legal-section">
+                    <h2>6. Cookies</h2>
+                    <p>Ce site n'utilise pas de cookies de traçage. Seuls des cookies techniques nécessaires au fonctionnement du site peuvent être déposés.</p>
+                </div>
+
+                <div id="modification" class="legal-section">
+                    <h2>7. Modification des mentions légales</h2>
+                    <p>SONIFERBA se réserve le droit de modifier les présentes mentions légales à tout moment. L'utilisateur est invité à les consulter régulièrement.</p>
+                </div>
+                
+                <div class="legal-section">
+                    <a href="index.html" class="back-to-home">
+                        <i class="fas fa-arrow-left"></i> Retour à l'accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer identique à l'index -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/images/logo.png" alt="Soniferba" class="footer-logo" loading="lazy" width="150" height="50">
+                    <p class="footer-tagline">Spécialiste en serrurerie et automatismes depuis 1984</p>
+                    <p class="footer-description">Soniferba propose des solutions professionnelles de quincaillerie spécialisée et d'automatismes pour particuliers et entreprises à Nîmes et ses environs.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Nous contacter</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> 10 Boulevard Natoire, 30000 Nîmes</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:0466848824">04 66 84 88 24</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:soniferbanimes@exo7-group.com">soniferbanimes@exo7-group.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-hours">
+                    <h4>Horaires d'ouverture</h4>
+                    <ul class="footer-hours-list">
+                        <li><span>Lundi - Jeudi</span><span>8h-12h | 14h-18h</span></li>
+                        <li><span>Vendredi</span><span>8h-12h | 13h30-17h</span></li>
+                        <li class="closed"><span>Samedi - Dimanche</span><span>Fermé</span></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html#about">À propos</a></li>
+                        <li><a href="automatismes.html">Automatismes</a></li>
+                        <li><a href="index.html#renovation">Quincaillerie</a></li>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 Soniferba - Tous droits réservés</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span class="separator">|</span>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+                <div class="footer-group">
+                    <p>Membre du groupe <a href="https://exo7-group.com" target="_blank" rel="noopener">EXO 7</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+</body>
+</html> 

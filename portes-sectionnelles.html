@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portes Sectionnelles Automatiques | Soniferba Nîmes</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Installation et dépannage de portes sectionnelles automatiques à Nîmes. Expert en motorisation de porte de garage, maintenance et réparation toutes marques.">
+    <meta name="keywords" content="porte sectionnelle, porte garage automatique, motorisation porte garage, installation porte sectionnelle, dépannage porte garage, Nîmes">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Styles spécifiques pour la page portes sectionnelles -->
+    <style>
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('images/realisations/Porte\ sectionelle/maintenance-porte-sectionnelle.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(220,2,48,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: #DC0230;
+        }
+
+        .models-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .model-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .model-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .model-card:hover .model-image img {
+            transform: scale(1.1);
+        }
+
+        .model-content {
+            padding: 30px;
+        }
+
+        .advantages-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        }
+
+        .advantage-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: #DC0230;
+        }
+
+        .maintenance-section {
+            background: #DC0230;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .maintenance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .maintenance-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .maintenance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .contact-info p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button.phone {
+            background: #DC0230;
+            color: white;
+        }
+
+        .contact-button.email {
+            background: white;
+            color: #DC0230;
+            border: 2px solid #DC0230;
+        }
+
+        .contact-button i {
+            margin-right: 10px;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-button.phone:hover {
+            background: #F00235;
+        }
+
+        .contact-button.email:hover {
+            background: #DC0230;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête et navigation existants -->
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo Soniferba" class="critical" width="180" height="60" fetchpriority="high">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="automatismes.html">Nos Automatismes</a></li>
+                    <li><a href="deny-security.html">Deny Security</a></li>
+                    <li><a href="dom-metallux.html">DOM Metallux</a></li>
+                    <li><a href="histoire.html">Notre Histoire</a></li>      
+                    <li><a href="sav-automatismes.html">SAV</a></li>
+                
+
+                    
+                    <li class="partner-nav-item">
+                        <a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener" class="partner-nav-link">
+                            <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="partner-nav-logo">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section Hero -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Portes Sectionnelles Automatiques</h1>
+                <p>Solutions sur mesure pour votre garage - Installation et maintenance professionnelle</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Demander un devis</a>
+                    <a href="#models" class="btn-secondary">Découvrir nos modèles</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Caractéristiques -->
+        <section class="features-section">
+            <div class="container">
+                <h2>Pourquoi choisir une porte sectionnelle ?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Sécurité Maximale</h3>
+                        <p>Système anti-effraction, détection d'obstacles, déverrouillage manuel de secours</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <h3>Isolation Performante</h3>
+                        <p>Panneaux isolants 40mm, joints d'étanchéité périphériques, protection thermique</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Fonctionnement Silencieux</h3>
+                        <p>Rails et galets de guidage haute qualité, motorisation dernière génération</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Modèles -->
+        <section id="models" class="models-section">
+            <div class="container">
+                <h2>Nos Modèles de Portes Sectionnelles</h2>
+                <div class="models-grid">
+                    <!-- Modèle Résidentiel -->
+                    <div class="model-card">
+                        <div class="model-image">
+                            <img src="images/portes-sectionnelles/modele-residentiel.webp" alt="Porte sectionnelle résidentielle">
+                        </div>
+                        <div class="model-content">
+                            <h3>Gamme Résidentielle</h3>
+                            <ul class="model-features">
+                                <li>Design personnalisable</li>
+                                <li>Motorisation silencieuse</li>
+                                <li>Télécommande multi-canaux</li>
+                                <li>Garantie 5 ans</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Modèle Premium -->
+                    <div class="model-card">
+                        <div class="model-image">
+                            <img src="images/portes-sectionnelles/modele-premium.webp" alt="Porte sectionnelle premium">
+                        </div>
+                        <div class="model-content">
+                            <h3>Gamme Premium</h3>
+                            <ul class="model-features">
+                                <li>Isolation renforcée</li>
+                                <li>Domotique intégrée</li>
+                                <li>Finitions haut de gamme</li>
+                                <li>Garantie 10 ans</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Services -->
+        <section class="services-section">
+            <div class="container">
+                <h2>Nos Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Installation</h3>
+                        <ul>
+                            <li>Étude technique personnalisée</li>
+                            <li>Pose par des experts certifiés</li>
+                            <li>Mise en service et réglages</li>
+                            <li>Formation à l'utilisation</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Maintenance</h3>
+                        <ul>
+                            <li>Contrats d'entretien sur mesure</li>
+                            <li>Vérifications périodiques</li>
+                            <li>Maintenance préventive</li>
+                            <li>SAV réactif</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Dépannage</h3>
+                        <ul>
+                            <li>Intervention rapide</li>
+                            <li>Diagnostic précis</li>
+                            <li>Réparation toutes marques</li>
+                            <li>Service d'urgence 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-info">
+                    <h2>Intéressé par nos solutions ?</h2>
+                    <p>Contactez-nous pour un devis personnalisé</p>
+                    <div class="contact-buttons">
+                        <a href="tel:0466848824" class="contact-button phone">
+                            <i class="fas fa-phone"></i> 04 66 84 88 24
+                        </a>
+                        <a href="mailto:soniferbanimes@exo7-group.com" class="contact-button email">
+                            <i class="fas fa-envelope"></i> Nous écrire
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer existant -->
+</body>
+</html> 

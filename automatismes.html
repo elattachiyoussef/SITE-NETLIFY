@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Installations | Soniferba</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    
+    <!-- Styles critiques inline pour le premier rendu -->
+    <style>
+        :root {
+            --primary-color: #8B0000;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-color: #333333;
+        }
+        body { margin: 0; opacity: 1 !important; font-family: 'Raleway', sans-serif; }
+        .main-header { position: absolute; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 0; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .intervention-map {
+            height: 60vh;
+            min-height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .custom-popup {
+            font-family: 'Raleway', sans-serif;
+        }
+        .intervention-circle {
+            stroke: var(--primary-color);
+            stroke-width: 2;
+            stroke-opacity: 0.8;
+            fill: var(--primary-color);
+            fill-opacity: 0.1;
+        }
+        /* Styles pour les appareils mobiles */
+        @media screen and (max-width: 768px) {
+            .intervention-map {
+                height: 50vh;
+                min-height: 300px;
+            }
+        }
+        /* Styles pour les très petits écrans */
+        @media screen and (max-width: 480px) {
+            .intervention-map {
+                height: 45vh;
+                min-height: 250px;
+            }
+        }
+        .client-types-section {
+            padding: 4rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .client-types-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .client-type {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .client-type:hover {
+            transform: translateY(-5px);
+        }
+
+        .client-type-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .client-type h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .client-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .client-features i {
+            color: var(--primary-color);
+        }
+
+        /* Styles responsifs */
+        @media screen and (max-width: 768px) {
+            .client-types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .client-type {
+                padding: 1.5rem;
+            }
+        }
+
+        .client-branches-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+        }
+
+        .branches-container {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .branch-connector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            z-index: 1;
+        }
+
+        .branch-connector::before,
+        .branch-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            transform: translate(-50%, -50%);
+        }
+
+        .branch-connector::before {
+            left: 0;
+        }
+
+        .branch-connector::after {
+            right: -20px;
+        }
+
+        .branch {
+            flex: 1;
+            max-width: 450px;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .branch:hover {
+            transform: translateY(-5px);
+        }
+
+        .branch-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .branch-icon i {
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .branch h3 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .branch h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .branch-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .feature span {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .branches-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .branch-connector {
+                width: 4px;
+                height: 100px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .branch-connector::before,
+            .branch-connector::after {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .branch-connector::before {
+                top: 0;
+            }
+
+            .branch-connector::after {
+                top: 100%;
+            }
+
+            .branch {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .branch-features {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                font-size: 0.85rem;
+            }
+
+            .branch {
+                padding: 1.5rem;
+            }
+        }
+
+        .repair-services-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f8f9fb, #ffffff);
+        }
+        
+        .repair-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .repair-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .repair-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #8B0000, #DC0230);
+            z-index: 1;
+        }
+        
+        .repair-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(139,0,0,0.15);
+        }
+        
+        .repair-header {
+            display: flex;
+            align-items: center;
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .repair-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(139,0,0,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .repair-card:hover .repair-icon {
+            background: rgba(139,0,0,0.2);
+            transform: scale(1.1);
+        }
+        
+        .repair-icon i {
+            font-size: 1.8rem;
+            color: #8B0000;
+        }
+        
+        .repair-header h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .repair-card:hover .repair-header h3 {
+            color: #8B0000;
+        }
+        
+        .repair-body {
+            padding: 25px 30px;
+            flex-grow: 1;
+        }
+        
+        .repair-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .repair-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 0.95rem;
+            padding-left: 0;
+        }
+        
+        .repair-list li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .repair-list i {
+            color: #8B0000;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+        
+        .emergency-service {
+            margin-top: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(139,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emergency-service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #8B0000, #DC0230);
+        }
+        
+        .emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #8B0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(139,0,0,0.2);
+        }
+        
+        .emergency-badge i {
+            font-size: 1.2rem;
+        }
+        
+        .emergency-service p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 25px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .emergency-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #8B0000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(139,0,0,0.2);
+        }
+        
+        .emergency-btn:hover {
+            background: #a00000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139,0,0,0.3);
+        }
+        
+        @media (max-width: 992px) {
+            .repair-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .repair-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .emergency-service {
+                padding: 30px 20px;
+            }
+            
+            .emergency-service p {
+                max-width: 100%;
+            }
+        }
+    </style>
+    
+    <!-- Préconnexions -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Soniferba, expert en automatismes à Nîmes. Installation et maintenance de motorisations pour portails, volets roulants et portes de garage.">
+    <meta name="keywords" content="automatisme, motorisation, portail, volet roulant, porte de garage, Nîmes">
+    <meta property="og:title" content="Nos Installations - Soniferba">
+    <meta property="og:description" content="Installation et maintenance d'automatismes pour portails, volets roulants et portes de garage à Nîmes.">
+    <meta property="og:image" content="assets/images/logo.png">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Icône flottante du menu -->
+    <div class="floating-menu-icon">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation flottante -->
+    <nav class="floating-nav">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Accueil</a></li>
+            <li><a href="index.html#services"><i class="fas fa-box"></i>Nos Produits</a></li>
+            <li><a href="automatismes.html" class="active"><i class="fas fa-cogs"></i>Nos Installations</a></li>
+            <li><a href="deny-security.html"><i class="fas fa-shield-alt"></i>Deny Security</a></li>
+            <li><a href="histoire.html"><i class="fas fa-book"></i>Notre Histoire</a></li>
+            <li><a href="sav-automatismes.html">SAV</a></li>
+        </ul>
+    </nav>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo Soniferba" class="critical" width="180" height="60" fetchpriority="high">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="automatismes.html" class="active">Nos Installations</a></li>
+                    <li><a href="deny-security.html">Deny Security</a></li>
+                    <li><a href="histoire.html">Notre Htoire</a></li>
+                    <li><a href="dom-metallux.html">DOM Metallux</a></li>
+                    <li><a href="elbac-cable.html" class="active">ELBAC Câble</a></li>
+                    <li><a href="sav-automatismes.html">SAV</a></li>
+                
+                    <li class="partner-nav-item">
+                        <a href="https://www.storistes-de-france.com/affilies/soniferba-1" target="_blank" rel="noopener" class="partner-nav-link">
+                            <img src="images/logostoristesfrance.jpg" alt="Storistes de France" class="partner-nav-logo">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section Hero avec carrousel existant -->
+        <section class="hero-section">
+            <div class="hero-carousel">
+                <div class="carousel-slide active" style="background-image: url('images\ automatismes\ /porte-de-box (1).webp')">
+                    <div class="carousel-overlay"></div>
+                    <div class="hero-text-center">
+                        <h1>Nos Installations & Motorisations</h1>
+                        <p>Solutions sur mesure pour votre confort et votre sécurité à Nîmes et alentours</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="images/automatismes/portail-coulissant.webp" alt="Installation porte de box automatique" loading="lazy">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-content">
+                        <h2>Portes de Box Automatiques</h2>
+                        <p>Solutions professionnelles pour vos installations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badge Devis Gratuit -->
+        <div class="devis-badge" onclick="scrollToContact()">
+            <div class="badge-content">
+                <span class="badge-text">Devis</span>
+                <span class="badge-highlight">GRATUIT</span>
+            </div>
+        </div>
+
+        <!-- Section Expertise -->
+        <section class="expertise-section">
+            <div class="container">
+                <div class="expertise-grid">
+                    <div class="expertise-content">
+                        <h2>Notre Expertise en Automatisation</h2>
+                        <p>Depuis 1984, nos techniciens qualifiés interviennent sur Nîmes et ses environs pour tous vos besoins en automatisation :</p>
+                        <ul class="expertise-list">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Installation professionnelle d'automatismes</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-wrench"></i>
+                                <span>Maintenance préventive et entretien régulier</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-tools"></i>
+                                <span>Dépannage rapide sur plusieurs types d'automatismes</span>
+                            </li>
+                            <li>
+                            </li>
+                            </ul>
+                        </div>
+                    <div class="expertise-image">
+                        <img src="images automatismes /technicien de qualité .webp" alt="Technicien expert en installation" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Repair Services -->
+        <section class="repair-services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Dépannage et Réparation d'Automatismes</h2>
+                    <p class="section-subtitle">Service d'urgence et intervention rapide sur tous types d'automatismes</p>
+                </div>
+
+                <div class="repair-grid">
+                    <!-- Dépannage Portails -->
+                    <div class="repair-card">
+                        <div class="repair-header">
+                            <div class="repair-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Dépannage Portails Automatiques</h3>
+                        </div>
+                        <div class="repair-body">
+                            <ul class="repair-list">
+                                <li><i class="fas fa-check"></i> Réparation portail battant bloqué</li>
+                                <li><i class="fas fa-check"></i> Dépannage moteur portail coulissant</li>
+                                <li><i class="fas fa-check"></i> Remplacement carte électronique</li>
+                                <li><i class="fas fa-check"></i> Réparation crémaillère portail</li>
+                                <li><i class="fas fa-check"></i> Maintenance motorisation portail</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dépannage Portes -->
+                    <div class="repair-card">
+                        <div class="repair-header">
+                            <div class="repair-icon">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <h3>Réparation Portes Automatiques</h3>
+                        </div>
+                        <div class="repair-body">
+                            <ul class="repair-list">
+                                <li><i class="fas fa-check"></i> Dépannage porte de garage sectionnelle</li>
+                                <li><i class="fas fa-check"></i> Réparation porte automatique basculante</li>
+                                <li><i class="fas fa-check"></i> Maintenance moteur porte garage</li>
+                                <li><i class="fas fa-check"></i> Remplacement télécommande porte</li>
+                                <li><i class="fas fa-check"></i> Réglage fin de course</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dépannage Volets -->
+                    <div class="repair-card">
+                        <div class="repair-header">
+                            <div class="repair-icon">
+                                <i class="fas fa-window-restore"></i>
+                            </div>
+                            <h3>Dépannage Volets Roulants</h3>
+                        </div>
+                        <div class="repair-body">
+                            <ul class="repair-list">
+                                <li><i class="fas fa-check"></i> Réparation volet roulant électrique</li>
+                                <li><i class="fas fa-check"></i> Dépannage moteur volet bloqué</li>
+                                <li><i class="fas fa-check"></i> Remplacement sangle volet</li>
+                                <li><i class="fas fa-check"></i> Maintenance volet motorisé</li>
+                                <li><i class="fas fa-check"></i> Réparation tablier volet</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dépannage Rideaux -->
+                    <div class="repair-card">
+                        <div class="repair-header">
+                            <div class="repair-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Réparation Rideaux Métalliques</h3>
+                        </div>
+                        <div class="repair-body">
+                            <ul class="repair-list">
+                                <li><i class="fas fa-check"></i> Dépannage rideau métallique bloqué</li>
+                                <li><i class="fas fa-check"></i> Réparation moteur rideau commerce</li>
+                                <li><i class="fas fa-check"></i> Maintenance rideau électrique</li>
+                                <li><i class="fas fa-check"></i> Remplacement lames rideau</li>
+                                <li><i class="fas fa-check"></i> Intervention urgence commerce</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                
+        </section>
+
+        <!-- Section Types de Clients - Version branches -->
+        <section class="client-branches-section">
+            <div class="container">
+                <div class="branches-container">
+                    <div class="branch-connector"></div>
+                    <div class="branch pro">
+                        <div class="branch-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="branch-content">
+                            <h3>Solutions Professionnelles</h3>
+                            <div class="branch-features">
+                                <div class="feature">
+                                    <i class="fas fa-building"></i>
+                                    <span>Copropriétés</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-network-wired"></i>
+                                    <span>Gestion centralisée</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-file-contract"></i>
+                                    <span>Contrats maintenance</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Installation sur mesure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="branch particulier">
+                        <div class="branch-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="branch-content">
+                            <h3>Solutions Particuliers</h3>
+                            <div class="branch-features">
+                                <div class="feature">
+                                    <i class="fas fa-house-user"></i>
+                                    <span>Résidentiel</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Garantie fabricant</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-headset"></i>
+                                    <span>SAV personnalisé</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>Devis gratuit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Zone d'Intervention - Version améliorée -->
+        <section class="service-area">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Notre zone d'intervention</h2>
+                    <p class="section-subtitle">Experts en automatismes à Nîmes et dans tout le Gard</p>
+                </div>
+                
+                <div class="intervention-grid">
+                    <div class="intervention-map">
+                        <div id="map"></div>
+                    </div>
+                    
+                    <div class="intervention-content">
+                        <div class="intervention-description">
+                            <h3>Nîmes et alentours dans un rayon de 50km</h3>
+                            <p>Nos techniciens spécialisés interviennent rapidement sur l'ensemble de la région nîmoise et du Gard pour tous vos projets d'automatisation. Nous couvrons :</p>
+                            
+                            <div class="cities-grid">
+                                <div class="cities-column">
+                                    <ul class="cities-list">
+                                        <li><i class="fas fa-map-marker-alt"></i> Nîmes</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Alès</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Bagnols-sur-Cèze</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Beaucaire</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Saint-Gilles</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Agde</li>
+                                    </ul>
+                                </div>
+                                <div class="cities-column">
+                                    <ul class="cities-list">
+                                        <li><i class="fas fa-map-marker-alt"></i> Uzès</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Aigues-Mortes</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Le Grau-du-Roi</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Sommières</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Montpellier</li>
+                                        <li><i class="fas fa-map-marker-alt"></i> Villeneuve-lès-Avignon</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                           
+            </div>
+        </section>
+
+        <!-- Section Processus d'installation (Version horizontale) -->
+        <section class="installation-process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Notre processus d'installation</h2>
+                    <p class="section-subtitle">Un service clé en main pour votre tranquillité</p>
+                </div>
+                
+                <div class="process-steps-horizontal">
+                    <div class="process-step-horizontal">
+                        <div class="step-number-horizontal">1</div>
+                        <div class="step-content-horizontal">
+                            <h3>Étude et devis gratuit</h3>
+                            <p>Analyse précise de votre projet sur place</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step-horizontal">
+                        <div class="step-number-horizontal">2</div>
+                        <div class="step-content-horizontal">
+                            <h3>Planification</h3>
+                            <p>Organisation selon vos disponibilités</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step-horizontal">
+                        <div class="step-number-horizontal">3</div>
+                        <div class="step-content-horizontal">
+                            <h3>Installation</h3>
+                            <p>Pose par nos techniciens qualifiés</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step-horizontal">
+                        <div class="step-number-horizontal">4</div>
+                        <div class="step-content-horizontal">
+                            <h3>Tests</h3>
+                            <p>Vérification complète du fonctionnement</p>
+                            </div>
+                            </div>
+                    
+                    <div class="process-step-horizontal">
+                        <div class="step-number-horizontal">5</div>
+                        <div class="step-content-horizontal">
+                            <h3>Suivi</h3>
+                            <p>Maintenance et assistance technique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Section Navigation Produits Améliorée -->
+        <section class="solutions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nos Solutions d'Automatisation</h2>
+                    <p class="section-subtitle">Des systèmes intelligents pour votre confort et votre sécurité</p>
+                </div>
+                
+                <div class="solutions-grid">
+                    <!-- Portails Battants -->
+                    <div class="solution-card">
+                        <div class="solution-image">
+                            <img src="images/realisations/portails/battants/installation-1_11zon.webp" alt="Portail battant automatisé">
+                            <div class="solution-overlay">
+                                <div class="solution-icon">
+                                    <i class="fas fa-archway"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>Portails Battants</h3>
+                            <p>Motorisation adaptée pour un accès simple et sécurisé à votre propriété</p>
+                            <ul class="solution-features">
+                                <li><i class="fas fa-check-circle"></i> Ouverture télécommandée</li>
+                                <li><i class="fas fa-check-circle"></i> Système anti-écrasement</li>
+                                <li><i class="fas fa-check-circle"></i> Compatible tous modèles</li>
+                            </ul>
+                            <a href="portails-battants.html" class="btn-solution">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portails Coulissants -->
+                    <div class="solution-card">
+                        <div class="solution-image">
+                            <img src="images/realisations/portails/coulissant/installation-1.webp" alt="Portail coulissant automatisé">
+                            <div class="solution-overlay">
+                                <div class="solution-icon">
+                                    <i class="fas fa-door-sliding"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>Portails Coulissants</h3>
+                            <p>Solutions idéales pour les espaces restreints et une sécurité optimale</p>
+                            <ul class="solution-features">
+                                <li><i class="fas fa-check-circle"></i> Gain d'espace</li>
+                                <li><i class="fas fa-check-circle"></i> Moteur puissant et silencieux</li>
+                                <li><i class="fas fa-check-circle"></i> Installation sur tous terrains</li>
+                            </ul>
+                            <a href="portails-coulissants.html" class="btn-solution">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portes Sectionnelles -->
+                    <div class="solution-card">
+                        <div class="solution-image">
+                            <img src="images/automatismes/porte-sectionnelle.webp" alt="Porte sectionnelle automatisée">
+                            <div class="solution-overlay">
+                                <div class="solution-icon">
+                                    <i class="fas fa-warehouse"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>Portes Sectionnelles</h3>
+                            <p>Automatisation de portes de garage pour un confort d'utilisation optimal</p>
+                            <ul class="solution-features">
+                                <li><i class="fas fa-check-circle"></i> Isolation thermique</li>
+                                <li><i class="fas fa-check-circle"></i> Fonctionnement silencieux</li>
+                                <li><i class="fas fa-check-circle"></i> Sécurité renforcée</li>
+                            </ul>
+                            <a href="portes-sectionnelles.html" class="btn-solution">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portes Basculantes -->
+                    <div class="solution-card">
+                        <div class="solution-image">
+                            <img src="images/realisations/porte de garage/installation-complete (1)_1_11zon.webp" alt="Porte basculante automatisée">
+                            <div class="solution-overlay">
+                                <div class="solution-icon">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>Portes Basculantes</h3>
+                            <p>Motorisation de portes basculantes pour un accès facile à votre garage</p>
+                            <ul class="solution-features">
+                                <li><i class="fas fa-check-circle"></i> Installation rapide</li>
+                                <li><i class="fas fa-check-circle"></i> Ouverture à distance</li>
+                                <li><i class="fas fa-check-circle"></i> Adaptation à l'existant</li>
+                            </ul>
+                            <a href="portes-basculantes.html" class="btn-solution">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Volets Roulants -->
+                    <div class="solution-card">
+                        <div class="solution-image">
+                            <img src="images/realisations/volets/facade.jpg" alt="Volet roulant automatisé">
+                            <div class="solution-overlay">
+                                <div class="solution-icon">
+                                    <i class="fas fa-window-restore"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>Volets Roulants</h3>
+                            <p>Dépannage rapide et installation de motorisations pour tous types de volets</p>
+                            <ul class="solution-features">
+                                <li><i class="fas fa-tools"></i> Dépannage toutes marques</li>
+                                <li><i class="fas fa-bolt"></i> Intervention rapide</li>
+                                <li><i class="fas fa-sync"></i> Remplacement moteur</li>
+                            </ul>
+                            <a href="volets-roulants.html" class="btn-solution">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Rideaux Métalliques -->
+                    <div class="solution-card">
+                        <div class="solution-image">
+                            <img src="images/realisations/rideaux métalliques/rideaux-métalliques (1)_1.webp" alt="Rideau métallique automatisé">
+                            <div class="solution-overlay">
+                                <div class="solution-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>Rideaux Métalliques</h3>
+                            <p>Installation et dépannage de motorisations pour commerces et entrepôts</p>
+                            <ul class="solution-features">
+                                <li><i class="fas fa-tools"></i> Dépannage d'urgence</li>
+                                <li><i class="fas fa-shield-alt"></i> Sécurité renforcée</li>
+                                <li><i class="fas fa-cogs"></i> Maintenance préventive</li>
+                            </ul>
+                            <a href="rideaux-metalliques.html" class="btn-solution">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Marques -->
+        <section class="brands">
+            <div class="container">
+                <h2 class="section-title">Nos marques partenaires</h2>
+                <div class="brands-grid">
+                        <!-- DEA -->
+                        <div class="brand-slide">
+                            <a href="https://www.deasystem.com/fr/" target="_blank" rel="noopener">
+                                <img src="Logo marques /logoDEA.png" alt="DEA" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>DEA</h4>
+                                <p>Automatismes de qualité italienne</p>
+                            </div>
+                        </div>
+
+                        <!-- CAME -->
+                        <div class="brand-slide">
+                            <a href="https://www.came.com/fr" target="_blank" rel="noopener">
+                                <img src="Logo marques /LogoCAME.png" alt="CAME" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>CAME</h4>
+                                <p>Solutions d'automatisation avancées</p>
+                            </div>
+                        </div>
+
+                        <!-- V2 -->
+                        <div class="brand-slide">
+                            <a href="https://www.v2home.com/fr/" target="_blank" rel="noopener">
+                                <img src="Logo marques /logoV2.jpg" alt="V2" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>V2</h4>
+                                <p>Solutions d'automatisation innovantes</p>
+                            </div>
+                        </div>
+
+                        <!-- Somfy -->
+                        <div class="brand-slide">
+                            <a href="https://www.somfy.fr/" target="_blank" rel="noopener">
+                                <img src="Logo marques /somfylogo.png" alt="Somfy" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>Somfy</h4>
+                                <p>N°1 de la motorisation et domotique</p>
+                            </div>
+                        </div>
+
+                        <!-- BFT -->
+                        <div class="brand-slide">
+                            <a href="https://www.bft-automation.com/fr_FR/" target="_blank" rel="noopener">
+                                <img src="Logo marques /logoBFT;png.png" alt="BFT" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>BFT</h4>
+                                <p>Systèmes d'automatisation innovants</p>
+                            </div>
+                        </div>
+
+                        <!-- SIMU -->
+                        <div class="brand-slide">
+                            <a href="https://www.simu.com/fr" target="_blank" rel="noopener">
+                                <img src="Logo marques /SIMU.png" alt="SIMU" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>SIMU</h4>
+                                <p>Motorisation pour volets et stores</p>
+                            </div>
+                        </div>
+
+                        <!-- Cardin -->
+                        <div class="brand-slide">
+                            <a href="https://www.cardin.fr/" target="_blank" rel="noopener">
+                                <img src="Logo marques /logo Cardin" alt="Cardin" loading="lazy">
+                            </a>
+                            <div class="brand-overlay">
+                                <h4>Cardin</h4>
+                                <p>Automatismes et contrôle d'accès</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section class="contact-section">
+            <div class="container">
+                <h2>Besoin d'un devis ?</h2>
+                <p>Nos experts sont à votre disposition pour étudier votre projet</p>
+                <div class="contact-buttons">
+                    <a href="tel:0466848824" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> 04 66 84 88 24
+                    </a>
+                    <a href="mailto:soniferbanimes@exo7-group.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Nous contacter
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="images/logo.png" alt="Soniferba" class="footer-logo" loading="lazy" width="150" height="50">
+                    <p class="footer-tagline">Spécialiste en serrurerie et automatismes depuis 1984</p>
+                    <p class="footer-description">Soniferba propose des solutions professionnelles de quincaillerie spécialisée et d'automatismes pour particuliers et entreprises à Nîmes et ses environs.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Nous contacter</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> 10 Boulevard Natoire, 30000 Nîmes</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:0466848824">04 66 84 88 24</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:soniferbanimes@exo7-group.com">soniferbanimes@exo7-group.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-hours">
+                    <h4>Horaires d'ouverture</h4>
+                    <ul class="footer-hours-list">
+                        <li><span>Lundi - Jeudi</span><span>8h-12h | 14h-18h</span></li>
+                        <li><span>Vendredi</span><span>8h-12h | 13h30-17h</span></li>
+                        <li class="closed"><span>Samedi - Dimanche</span><span>Fermé</span></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html#about">À propos</a></li>
+                        <li><a href="automatismes.html">Automatismes</a></li>
+                        <li><a href="index.html#renovation">Quincaillerie</a></li>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 Soniferba - Tous droits réservés</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span class="separator">|</span>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+                <div class="footer-group">
+                    <p>Membre du groupe <a href="https://exo7-group.com" target="_blank" rel="noopener">EXO 7</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Leaflet script -->
+    <script>
+        // Coordonnées de Nîmes
+        const nimesCoords = [43.836699, 4.360054];
+        
+        // Initialisation de la carte avec un zoom plus éloigné
+        const map = L.map('map').setView(nimesCoords, 9);
+        
+        // Fond de carte
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="https://www.openstreetmap.fr">OSM France</a>',
+            maxZoom: 19,
+            minZoom: 8
+        }).addTo(map);
+
+        // Création d'une icône personnalisée
+        const customIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: '<div style="background-color: #8B0000; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white;"></div>',
+            iconSize: [15, 15],
+            iconAnchor: [7, 7]
+        });
+
+        // Icône spéciale pour Nîmes (siège)
+        const nimesIcon = L.divIcon({
+            className: 'nimes-div-icon',
+            html: '<div style="background-color: #8B0000; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white;"></div>',
+            iconSize: [20, 20],
+            iconAnchor: [10, 10]
+        });
+
+        // Cercle de 50km
+        const interventionCircle = L.circle(nimesCoords, {
+            radius: 50000,
+            color: '#8B0000',
+            fillColor: '#8B0000',
+            fillOpacity: 0.1,
+            weight: 2,
+            opacity: 0.8
+        }).addTo(map);
+
+        // Marqueur pour Nîmes avec l'icône personnalisée
+        const nimesMarker = L.marker(nimesCoords, {icon: nimesIcon})
+            .bindPopup('<div class="custom-popup"><strong>Soniferba</strong><br>10 Boulevard Natoire<br>30000 Nîmes</div>')
+            .addTo(map);
+
+        // Ajout des marqueurs pour les villes avec l'icône personnalisée
+        const cities = [
+            { name: 'Alès', coords: [44.1254, 4.0757] },
+            { name: 'Bagnols-sur-Cèze', coords: [44.1608, 4.6197] },
+            { name: 'Beaucaire', coords: [43.8063, 4.6428] },
+            { name: 'Saint-Gilles', coords: [43.6773, 4.4311] },
+            { name: 'Uzès', coords: [44.0121, 4.4199] },
+            { name: 'Aigues-Mortes', coords: [43.5667, 4.1833] },
+            { name: 'Le Grau-du-Roi', coords: [43.5333, 4.1333] },
+            { name: 'Sommières', coords: [43.7833, 4.0833] }
+        ];
+
+        cities.forEach(city => {
+            L.marker(city.coords, {icon: customIcon})
+                .bindPopup(`<div class="custom-popup"><strong>${city.name}</strong></div>`)
+                .addTo(map);
+        });
+
+        // Ajout de l'événement de redimensionnement
+        window.addEventListener('resize', function() {
+            map.invalidateSize();
+        });
+
+        // Forcer une mise à jour de la taille après le chargement
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 100);
+    </script>
+</body>
+</html> 

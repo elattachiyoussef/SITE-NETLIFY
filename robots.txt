@@ -1,0 +1,45 @@
+# www.robotstxt.org/
+
+# Autoriser tous les robots
+User-agent: *
+Allow: /
+
+# Interdire l'accès aux dossiers administratifs
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Autoriser l'accès aux ressources statiques
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+Allow: /assets/
+
+# Sitemap
+Sitemap: https://www.soniferba.fr/sitemap.xml
+
+# Temps d'attente entre les requêtes
+Crawl-delay: 10
+
+# Instructions spécifiques pour Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+# Instructions pour Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+# Instructions pour les images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /assets/images/
+
+# Optimisation pour le référencement local
+Allow: /contact.html
+Allow: /histoire.html
+Allow: /automatismes.html
+Allow: /deny-security.html 
